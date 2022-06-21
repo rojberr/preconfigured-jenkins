@@ -6,7 +6,9 @@ This repository allows other repositories to download it and run jenkins contain
 
 ## Usage
 
-To use this CI/CD repo include a ...
+To use this CI/CD repo:
+- copy seedJob.xml to your repo and change "<hudson.plugins.git.UserRemoteConfig> url"
+- add Jenkins.file to your repo and define your pipelines, that will be executed by Container defined in this repo.
 
 The createJobs.groovy files will be used by Jenkins job DSL plugin to create build/test job.
 

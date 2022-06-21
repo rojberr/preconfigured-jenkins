@@ -6,3 +6,17 @@ pipelineJob('pipelineJob') {
         }
     }
 }
+pipelineJob('build-test-job') {
+    definition {
+        cpsScm {
+            scm {
+                git {
+                    remote {
+                        url = 'https://github.com/rojberr/certgen'
+                    }
+                    branch 'master'
+                }
+            }
+        }
+    }
+}
