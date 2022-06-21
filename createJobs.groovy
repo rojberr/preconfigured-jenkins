@@ -6,7 +6,7 @@ pipelineJob('pipelineJob') {
         }
     }
 }
-pipelineJob('build-test-job') {
+pipelineJob('remote-job') {
     definition {
         cpsScm {
             scm {
