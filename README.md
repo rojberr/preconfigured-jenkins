@@ -1,14 +1,22 @@
-# build-it-and-check-it-with-jenkins
+# build-your-repo-with-jenkins-container
 
-This repository allows other repositories to download it and run jenkins container which will build the application and run the tests automatically.
+This repository allows builds and runs preconfigured Jenkins container to download Your repos and run their Jenkins.file.
+It allows you to easily build run the tests automatically.
 
 ![Selective Photography Cement by Rodolfo Quiros](./img/pexels-rodolfo-quirós-2219024.jpg)
 
 ## Usage
 
 To use this CI/CD repo:
-- copy seedJob.xml to your repo and change "<hudson.plugins.git.UserRemoteConfig> url"
-- add Jenkins.file to your repo and define your pipelines, that will be executed by Container defined in this repo.
+
+- clone it,
+- change "<hudson.plugins.git.UserRemoteConfig> url" in seedJob.xml to your API repo url
+- add Jenkins.file to your API repo and define your pipelines there, they will be executed by Container defined in this repo,
+- build and run container that will execute your pipelines:
+
+> ./gradlew build docker dockerRun
+
+## How it works?
 
 The createJobs.groovy files will be used by Jenkins job DSL plugin to create build/test job.
 
