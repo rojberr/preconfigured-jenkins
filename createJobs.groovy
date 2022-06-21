@@ -12,7 +12,7 @@ pipelineJob('remote-job') {
             scm {
                 git {
                     remote {
-                        url = 'https://github.com/your_username/your_repo_name'
+                        url = 'https://github.com/rojberr/certgen'
                     }
                     branch 'master'
                 }
