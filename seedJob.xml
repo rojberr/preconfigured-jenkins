@@ -7,7 +7,7 @@
         <configVersion>2</configVersion>
         <userRemoteConfigs>
             <hudson.plugins.git.UserRemoteConfig>
-                <url>https://github.com/rojberr/certgen</url>
+                <url>https://github.com/rojberr/build-your-repo-with-jenkins-container.git</url>
             </hudson.plugins.git.UserRemoteConfig>
         </userRemoteConfigs>
         <branches>

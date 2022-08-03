@@ -14,11 +14,14 @@ To use this CI/CD repo:
 - add Jenkins.file to your API repo and define your pipelines there, they will be executed by Container defined in this repo,
 - build and run container that will execute your pipelines:
 
-> ./gradlew build docker dockerRun
+```bash
+./gradlew build docker dockerRun
+```
 
 To stop it use:
-
-> ./gradlew dockerStop
+```bash
+./gradlew dockerStop
+```
 
 ## How it works?
 
