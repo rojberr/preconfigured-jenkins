@@ -1,5 +1,7 @@
 FROM jenkins/jenkins:2.362-jdk11
 
+MAINTAINER Rojberr rojberr@outlook.com
+
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 
 # Install required plugins
