@@ -2,8 +2,6 @@ FROM jenkins/jenkins:2.362-jdk17
 
 MAINTAINER Rojberr rojberr@outlook.com
 
-COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
-
 # Install required plugins
 RUN jenkins-plugin-cli --plugins \
     git:4.11.4 \
