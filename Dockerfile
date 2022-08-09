@@ -9,7 +9,8 @@ RUN jenkins-plugin-cli --plugins \
     job-dsl:1.81 \
     workflow-aggregator:590.v6a_d052e5a_a_b_5 \
     authorize-project:1.4.0 \
-    gradle:1.39.4
+    gradle:1.39.4 \
+    credentials:1129.vef26f5df883c
 
 COPY seedJob.xml /usr/share/jenkins/ref/jobs/seed-job/config.xml
 
