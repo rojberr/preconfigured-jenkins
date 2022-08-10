@@ -11,6 +11,7 @@ RUN jenkins-plugin-cli --plugins \
     ## For "authorizationStrategy: globalMatrix"
     matrix-auth:3.1.5 \
     authorize-project:1.4.0 \
+    pipeline-stage-view:2.24 \
     credentials:1139.veb_9579fca_33b_ \
     configuration-as-code:1512.vb_79d418d5fc8 \
     workflow-aggregator:590.v6a_d052e5a_a_b_5
