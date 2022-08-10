@@ -13,11 +13,9 @@ To use this CI/CD repo:
 git clone git@github.com:rojberr/build-your-repo-with-jenkins-container.git
 ```
 
-- in `seedJob.xml` change the "<hudson.plugins.git.UserRemoteConfig>...URL..." to your GitHub repository URL,
+- in `custom-jenkins-config` change the repositories URL to match your GitHub repository URLs,
 
-- add  `pipelineJob.groovy` to your remote repository, this file will create new `jenkinsJob`,
-
-- add `Jenkins.file` to your GitHub repository and define your pipeline steps there,
+- add `Jenkinsfile` to your GitHub repositories (make sure they are public) and define your pipeline steps there,
 
 - define admin login and password:
 
@@ -31,9 +29,7 @@ export JENKINS_ADMIN_PASSWORD=...
 ./gradlew build docker dockerRun
 ```
 
-- log in as admin, run `seedJob` to create the pipeline from remote `pipelineJob.groovy`
-
-- enjoy your dockerized Jenkins for GitHub jobs 💕
+- log in as admin and enjoy your dockerized Jenkins for GitHub jobs 💕
 
 To stop it use:
 ```bash
