@@ -10,8 +10,14 @@ RUN jenkins-plugin-cli --plugins \
     workflow-aggregator:590.v6a_d052e5a_a_b_5 \
     authorize-project:1.4.0 \
     gradle:1.39.4 \
-    credentials:1139.veb_9579fca_33b_
+    credentials:1139.veb_9579fca_33b_ \
+    configuration-as-code:1512.vb_79d418d5fc8
 
+### COPY CONFIG FILES ###
 COPY seedJob.xml /usr/share/jenkins/ref/jobs/seed-job/config.xml
+COPY casc.yml /var/jenkins_home/casc.yml
+
+### Set CASC_JENKINS_CONFIG env to point to config folder ###
+ENV CASC_JENKINS_CONFIG /var/jenkins_home/casc.yaml
 
 ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
