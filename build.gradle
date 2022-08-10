@@ -18,4 +18,5 @@ dockerRun {
     ports '8080:8080'
     clean true
     daemonize false
+    arguments '-e JENKINS_ADMIN_ID=${JENKINS_ADMIN_ID}', '-e JENKINS_ADMIN_PASSWORD=${JENKINS_ADMIN_PASSWORD}'
 }
