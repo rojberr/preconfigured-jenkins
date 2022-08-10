@@ -35,3 +35,14 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### OTHER ###
+*.swo
+*.swp
+*.log
+.vagrant/
+vault_pw_file
+vaultpasswd
+ansible.iml
+.travis
+.github
