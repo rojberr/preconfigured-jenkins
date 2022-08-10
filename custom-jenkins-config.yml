@@ -10,3 +10,5 @@ jenkins:
       permissions:
         - "Overall/Administer:admin"
         - "Overall/Read:anonymous"
+  remotingSecurity:
+    enabled: true
