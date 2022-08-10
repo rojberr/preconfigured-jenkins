@@ -15,9 +15,9 @@ RUN jenkins-plugin-cli --plugins \
 
 ### COPY CONFIG FILES ###
 COPY seedJob.xml /usr/share/jenkins/ref/jobs/seed-job/config.xml
-COPY casc.yml /var/jenkins_home/casc.yml
+COPY custom-jenkins-config.yml /var/jenkins_home/custom-jenkins-config.yml
 
 ### Set CASC_JENKINS_CONFIG env to point to config folder ###
-ENV CASC_JENKINS_CONFIG /var/jenkins_home/casc.yaml
+ENV CASC_JENKINS_CONFIG /var/jenkins_home/custom-jenkins-config.yml
 
 ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false

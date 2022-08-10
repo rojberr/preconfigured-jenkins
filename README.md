@@ -12,6 +12,13 @@ To use this CI/CD repo:
 - change "<hudson.plugins.git.UserRemoteConfig> url" in seedJob.xml to your API repo url
 - change url in pipelineJob.groovy to your API repo url,
 - add Jenkins.file to your API repo and define your pipelines there, they will be executed by Container defined in this repo,
+
+- define admin login and password:
+
+```bash
+export JENKINS_ADMIN_ID=...
+export JENKINS_ADMIN_PASSWORD=...
+```
 - build and run container that will execute your pipelines:
 
 ```bash
