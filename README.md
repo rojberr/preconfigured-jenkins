@@ -9,9 +9,15 @@ This repository creates preconfigured Jenkins container to download Your repos a
 To use this CI/CD repo:
 
 - clone it,
-- change "<hudson.plugins.git.UserRemoteConfig> url" in seedJob.xml to your API repo url
-- change url in pipelineJob.groovy to your API repo url,
-- add Jenkins.file to your API repo and define your pipelines there, they will be executed by Container defined in this repo,
+```bash
+git clone git@github.com:rojberr/build-your-repo-with-jenkins-container.git
+```
+
+- in `seedJob.xml` change the "<hudson.plugins.git.UserRemoteConfig>...URL..." to your GitHub repository URL,
+
+- add  `pipelineJob.groovy` to your remote repository, this file will create new `jenkinsJob`,
+
+- add `Jenkins.file` to your GitHub repository and define your pipeline steps there,
 
 - define admin login and password:
 
@@ -19,11 +25,15 @@ To use this CI/CD repo:
 export JENKINS_ADMIN_ID=...
 export JENKINS_ADMIN_PASSWORD=...
 ```
-- build and run container that will execute your pipelines:
+- build and run container:
 
 ```bash
 ./gradlew build docker dockerRun
 ```
+
+- log in as admin, run `seedJob` to create the pipeline from remote `pipelineJob.groovy`
+
+- enjoy your dockerized Jenkins for GitHub jobs 💕
 
 To stop it use:
 ```bash
@@ -34,7 +44,10 @@ To stop it use:
 
 The createJobs.groovy files will be used by Jenkins job DSL plugin to create build/test job.
 
-This repository uses Infrastructure as a Code philosophy, setting everything beforehand up.
+This repository uses Infrastructure as a Code philosophy, setting everything up.
+
+You can take a peek, how I deploy this Docker image on Digital Ocean Droplet here:
+[https://github.com/rojberr/deploy](https://github.com/rojberr/deploy)
 
 ## Need further support?
 
