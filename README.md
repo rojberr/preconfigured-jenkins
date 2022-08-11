@@ -1,6 +1,8 @@
-# build-your-repo-with-jenkins-container
+# preconfigured-jenkins
 
 This repository creates preconfigured Jenkins container to download Your repos and run their Jenkins.file.
+An exemplary instance was deployed here :point_right: [http://165.22.66.191:8080/](http://165.22.66.191:8080/) :feelsgood:
+I use it daily to build and check my own GitHub code.
 
 ![Selective Photography Cement by Rodolfo Quiros](./img/pexels-rodolfo-quirós-2219024.jpg)
 
@@ -10,7 +12,7 @@ To use this CI/CD repo:
 
 - clone it,
 ```bash
-git clone git@github.com:rojberr/build-your-repo-with-jenkins-container.git
+git clone git@github.com:rojberr/preconfigured-jenkins.git
 ```
 
 - in `custom-jenkins-config` change the repositories URL to match your GitHub repository URLs,
