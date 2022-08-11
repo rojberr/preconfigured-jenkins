@@ -1,7 +1,7 @@
 # preconfigured-jenkins
 
 This repository creates preconfigured Jenkins container to download Your repos and run their Jenkins.file.
-An exemplary instance was deployed here :point_right: [http://165.22.66.191:8080/](http://165.22.66.191:8080/) :feelsgood:
+An exemplary instance was deployed here :point_right: [http://207.154.196.96:8080/](http://207.154.196.96:8080/) :feelsgood:
 I use it daily to build and check my own GitHub code.
 
 ![Selective Photography Cement by Rodolfo Quiros](./img/pexels-rodolfo-quirós-2219024.jpg)
