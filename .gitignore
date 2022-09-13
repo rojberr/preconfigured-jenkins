@@ -46,3 +46,17 @@ vaultpasswd
 ansible.iml
 .travis
 .github
+
+# Don't include the private key
+privkey-digitalocean
+
+# Don't include the file with droplet ip, as it will change every time
+ansible-hosts.cf
+
+### TERRAFORM ###
+# cause everybody can download and build on theyr own ;)
+.terraform
+.terraform.tfstate
+.terraform.tfstate.backup
+terra/terraform.tfstate
+terra/terraform.tfstate.backup
