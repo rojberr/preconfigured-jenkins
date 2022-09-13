@@ -27,5 +27,5 @@ resource "local_file" "hosts_cfg" {
       digitaloceandroplet_ip = digitalocean_droplet.digitaloceanjenkins.*.ipv4_address
     }
   )
-  filename = "../ansible/ansible-hosts.cfg"
+  filename = "../infrastructure-ansible/ansible-hosts.cfg"
 }
