@@ -16,7 +16,7 @@ To use this CI/CD repo:
 git clone git@github.com:rojberr/preconfigured-jenkins.git
 ```
 
-- in `custom-jenkins-config` change the repositories URL to match your GitHub repository URLs,
+- in `01-build-docker-image/custom-jenkins-config.yml` change the repositories URL to match your GitHub repository URLs,
 
 - add `Jenkinsfile` to your GitHub repositories (make sure they are public) and define your pipeline steps there,
 
