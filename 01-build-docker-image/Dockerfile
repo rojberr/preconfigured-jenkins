@@ -1,6 +1,7 @@
 FROM jenkins/jenkins:2.362-jdk17
 
-MAINTAINER Rojberr rojberr@outlook.com
+LABEL maintainer="rojberr"
+LABEL build_date="2022-09-14"
 
 # Set CASC_JENKINS_CONFIG env to point to config folder ###
 ENV CASC_JENKINS_CONFIG /var/jenkins_home/custom-jenkins-config.yml
@@ -21,6 +22,6 @@ RUN jenkins-plugin-cli --plugins \
     configuration-as-code:1512.vb_79d418d5fc8 \
     workflow-aggregator:590.v6a_d052e5a_a_b_5
 
-### COPY CONFIG FILES ###
+# Copy config files
 COPY seedJob.xml /usr/share/jenkins/ref/jobs/seed-job/config.xml
 COPY custom-jenkins-config.yml /var/jenkins_home/custom-jenkins-config.yml
