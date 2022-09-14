@@ -14,6 +14,22 @@ jenkins:
     enabled: true
 jobs:
   - script: |
+      pipelineJob('simple-node-app') {
+        definition {
+          cpsScm {
+            scm {
+              git {
+                remote {
+                  url('https://github.com/rojberr/simple-node-app.git')
+                }
+                branch('*/master')
+              }
+            }
+            lightweight()
+          }
+        }
+      }
+  - script: |
       pipelineJob('certgen') {
         definition {
           cpsScm {
@@ -30,13 +46,61 @@ jobs:
         }
       }
   - script: |
-      pipelineJob('jaybeehoney-api') {
+      pipelineJob('mailsender') {
         definition {
           cpsScm {
             scm {
               git {
                 remote {
-                  url('https://github.com/rojberr/jaybeehoney-api.git')
+                  url('https://github.com/rojberr/mailsender.git')
+                }
+                branch('*/master')
+              }
+            }
+            lightweight()
+          }
+        }
+      }
+    - script: |
+      pipelineJob('smartaviator') {
+        definition {
+          cpsScm {
+            scm {
+              git {
+                remote {
+                  url('https://github.com/rojberr/smartaviator.git')
+                }
+                branch('*/master')
+              }
+            }
+            lightweight()
+          }
+        }
+      }
+  - script: |
+      pipelineJob('my-dev-site-2') {
+        definition {
+          cpsScm {
+            scm {
+              git {
+                remote {
+                  url('https://github.com/rojberr/my-dev-site-2.git')
+                }
+                branch('*/master')
+              }
+            }
+            lightweight()
+          }
+        }
+      }
+  - script: |
+      pipelineJob('my-dev-site-3') {
+        definition {
+          cpsScm {
+            scm {
+              git {
+                remote {
+                  url('https://github.com/rojberr/my-dev-site-3.git')
                 }
                 branch('*/master')
               }
