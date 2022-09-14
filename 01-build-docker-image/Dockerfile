@@ -2,6 +2,11 @@ FROM jenkins/jenkins:2.362-jdk17
 
 MAINTAINER Rojberr rojberr@outlook.com
 
+# Set CASC_JENKINS_CONFIG env to point to config folder ###
+ENV CASC_JENKINS_CONFIG /var/jenkins_home/custom-jenkins-config.yml
+# Skip setup wizard
+ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
+
 # Install required plugins
 RUN jenkins-plugin-cli --plugins \
     git:4.11.4 \
@@ -19,8 +24,3 @@ RUN jenkins-plugin-cli --plugins \
 ### COPY CONFIG FILES ###
 COPY seedJob.xml /usr/share/jenkins/ref/jobs/seed-job/config.xml
 COPY custom-jenkins-config.yml /var/jenkins_home/custom-jenkins-config.yml
-
-### Set CASC_JENKINS_CONFIG env to point to config folder ###
-ENV CASC_JENKINS_CONFIG /var/jenkins_home/custom-jenkins-config.yml
-
-ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
