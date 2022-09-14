@@ -50,9 +50,10 @@ The createJobs.groovy files will be used by Jenkins job DSL plugin to create bui
 
 ## Need further support?
 
-Contact me if you need help at rojberr@outlook.com .
+The code is provided as-is with no warranties.
+Contact me if you want to contribute at rojberr@outlook.com .
 
-![Jenkins Screenshot](./img/jenkins-example.jpg)
+![Jenkins Screenshot](./04-assets-img/jenkins-example.jpg)
 
 ## Things to automate - quick list:
 INFRA:
