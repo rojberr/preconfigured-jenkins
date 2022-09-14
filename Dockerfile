@@ -1,6 +1,7 @@
 FROM jenkins/jenkins:2.362-jdk17
 
-LABEL maintainer="rojberr" 
+LABEL maintainer="rojberr"
+LABEL build_date="2022-09-14" 
 
 # Install required plugins
 RUN jenkins-plugin-cli --plugins \
