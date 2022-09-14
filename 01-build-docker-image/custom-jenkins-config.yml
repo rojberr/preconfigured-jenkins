@@ -1,5 +1,5 @@
 jenkins:
-  systemMessage: 'Welcome to preconfigured Jenkins 👷'
+  systemMessage: "Welcome to preconfigured Jenkins 👷"
   securityRealm:
     local:
       allowsSignup: false
@@ -62,7 +62,7 @@ jobs:
           }
         }
       }
-    - script: |
+  - script: |
       pipelineJob('smartaviator') {
         definition {
           cpsScm {

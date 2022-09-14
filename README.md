@@ -15,16 +15,16 @@ git clone git@github.com:rojberr/preconfigured-jenkins.git
 ```
 - build the Docker image,
 ```bash
-docker build -t preconfigured-jenkins ./01-build-docker-image
+docker build --no-cache -t preconfigured-jenkins ./01-build-docker-image
 ```
 - now either execute it locally:
 ```bash
-docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home preconfigured-jenkins
+docker run -it -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home --name preconfigured-jenkins preconfigured-jenkins
 ```
 - or push it and deploy it on your server ^^ ...
 - log in as admin and enjoy your dockerized Jenkins for GitHub jobs 💕
 
-## Configure up to your needs! ⚙️
+## Configure it up to your needs! ⚙️
 - To install Jenkins plugins change the `Dockerfile` plugins section:
 ```bash
 vim ./01-build-docker-image/Dockerfile
@@ -63,7 +63,6 @@ IMAGE:
 - installation / first setup ✔️
 - admin password setup ✔️
 - unlocking Jenkins for the first time (token?) ✔️
-
 - user creation (at least one for each: guest / dev / admin) with roles
 - Jenkins master slave setup (one master and create one slave)
   (master - scheduling jobs, communicating and giving instr)
