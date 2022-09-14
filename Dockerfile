@@ -1,6 +1,6 @@
 FROM jenkins/jenkins:2.362-jdk17
 
-MAINTAINER Rojberr rojberr@outlook.com
+LABEL maintainer="rojberr" 
 
 # Install required plugins
 RUN jenkins-plugin-cli --plugins \
