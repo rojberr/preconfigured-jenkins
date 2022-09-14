@@ -9,41 +9,57 @@ I use it daily to build and check my own GitHub code.
 ## Usage 💡
 
 To use this CI/CD Infrastructure as Code repo:
+
 - clone it,
+
 ```bash
 git clone git@github.com:rojberr/preconfigured-jenkins.git
 ```
+
 - build the Docker image,
+
 ```bash
-docker build --no-cache -t preconfigured-jenkins ./01-build-docker-image
+docker build -t preconfigured-jenkins ./01-build-docker-image
 ```
+
 - now either execute it locally:
+
 ```bash
-docker run -it -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home --name preconfigured-jenkins preconfigured-jenkins
+docker run --rm -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home -v "/var/run/docker.sock:/var/run/docker.sock" --group-add 0 --name preconfigured-jenkins preconfigured-jenkins
 ```
+
 - or push it and deploy it on your server ^^ ...
 - log in as admin and enjoy your dockerized Jenkins for GitHub jobs 💕
 
 ## Configure it up to your needs! ⚙️
+
 - To install Jenkins plugins change the `Dockerfile` plugins section:
+
 ```bash
 vim ./01-build-docker-image/Dockerfile
 ```
+
 - To change Jenkins configuration edit Groovy scripts (all scripts will be copied to Docker image and executed on launch) located in:
+
 ```bash
 cd ./01-build-docker-image/init.groovy.d
 ```
+
 - To add/delete/modify Jenkins `jobs/pipelines` using JCasC Plugin modify `01-build-docker-image/custom-jenkins-config.yml`:
+
 ```bash
 vim 01-build-docker-image/custom-jenkins-config.yml
 ```
+
 - define admin login and password:
+
 ```bash
 export JENKINS_ADMIN_ID=...
 export JENKINS_ADMIN_PASSWORD=...
 ```
 
 ## Create jobs from remote Repos
+
 To create jobs using files located in remote repos take a peek at `seedJob.xml` example in `./01-build-docker-image/remote-jobs`. Create `createJobs.groovy` and `pipelineJob.groovy` in your remote repo root folder.
 
 The createJobs.groovy files will be used by Jenkins job DSL plugin to create build/test job.
@@ -56,10 +72,12 @@ Contact me if you want to contribute at rojberr@outlook.com .
 ![Jenkins Screenshot](./04-assets-img/jenkins-example.jpg)
 
 ## Things to automate - quick list:
+
 INFRA:
+
 - setting up the infra / server
 - downloading Jenkins (jar/war) / or container hosted?
-IMAGE:
+  IMAGE:
 - installation / first setup ✔️
 - admin password setup ✔️
 - unlocking Jenkins for the first time (token?) ✔️
@@ -80,21 +98,24 @@ IMAGE:
 - configure smtp (gmail? / docker mailserver)
 -
 - html reports after tests
-docker run --name jenkins -d -p 9090:8080 --mount source?jenkins_data,target=/var/jenkins_home
-or -v jenkins_data:/var/jenkins_home jenkins/jenkins:latest?
-the the volume is under /var/lib/docker/volumes/
+  docker run --name jenkins -d -p 9090:8080 --mount source?jenkins_data,target=/var/jenkins_home
+  or -v jenkins_data:/var/jenkins_home jenkins/jenkins:latest?
+  the the volume is under /var/lib/docker/volumes/
 - add jenkinsfile to each project
 - pipelines to build docker image from dockerfile and upload to dockerhub
   (add jenkins user to docker group usermode -a -G docker jenkins)
 - multibranch jobs
 
-
 --- OLD USAGE WITH GRADLE PLUGIN - deprecated ---
+
 - build and run container:
+
 ```bash
 ./gradlew build docker dockerRun
 ```
+
 To stop it use:
+
 ```bash
 ./gradlew dockerStop
 ```
