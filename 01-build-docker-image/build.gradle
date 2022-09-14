@@ -9,7 +9,7 @@ project.version = scmVersion.version
 
 docker {
     name "${project.name}:${project.version}"
-    files 'seedJob.xml', 'custom-jenkins-config.yml'
+    files 'remote-jobs/seedJob.xml', 'custom-jenkins-config.yml'
 }
 
 dockerRun {

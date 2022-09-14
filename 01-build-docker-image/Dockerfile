@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:2.362-jdk17
+FROM jenkins/jenkins:2.368-jdk17 AS preconfigured-jenkins
 
 LABEL maintainer="rojberr"
 LABEL build_date="2022-09-14"
@@ -23,5 +23,8 @@ RUN jenkins-plugin-cli --plugins \
     workflow-aggregator:590.v6a_d052e5a_a_b_5
 
 # Copy config files
-COPY seedJob.xml /usr/share/jenkins/ref/jobs/seed-job/config.xml
+COPY /remote-jobs/seedJob.xml /usr/share/jenkins/ref/jobs/seed-job/config.xml
 COPY custom-jenkins-config.yml /var/jenkins_home/custom-jenkins-config.yml
+
+# Groovy scripts executed during startup
+COPY --chown=jenkins:jenkins init.groovy.d/ var/jenkins_home/init.groovy.d/
