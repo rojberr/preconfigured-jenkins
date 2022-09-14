@@ -4,7 +4,7 @@ This Infrastructure as a Code repo builds Docker image and deploys preconfigured
 ~~An exemplary instance was deployed here :point_right: [http://207.154.196.96:8080/](http://207.154.196.96:8080/)~~ :feelsgood:
 I use it daily to build and check my own GitHub code.
 
-![Selective Photography Cement by Rodolfo Quiros](./img/readme-img.jpg)
+![Selective Photography Cement by Rodolfo Quiros](./04-assets-img/readme-img.jpg)
 
 ## Usage 💡
 
@@ -23,7 +23,7 @@ docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home preconf
 ```
 - or push it and deploy it on your server ^^ ...
 - log in as admin and enjoy your dockerized Jenkins for GitHub jobs 💕
-- 
+
 ## Configure up to your needs! ⚙️
 - To install Jenkins plugins change the `Dockerfile` plugins section:
 ```bash
@@ -33,7 +33,7 @@ vim ./01-build-docker-image/Dockerfile
 ```bash
 cd ./01-build-docker-image/init.groovy.d
 ```
-- To add/delete/modify Jenkins `jobs/pipelines` modify `01-build-docker-image/custom-jenkins-config.yml`:
+- To add/delete/modify Jenkins `jobs/pipelines` using JCasC Plugin modify `01-build-docker-image/custom-jenkins-config.yml`:
 ```bash
 vim 01-build-docker-image/custom-jenkins-config.yml
 ```
@@ -41,17 +41,6 @@ vim 01-build-docker-image/custom-jenkins-config.yml
 ```bash
 export JENKINS_ADMIN_ID=...
 export JENKINS_ADMIN_PASSWORD=...
-```
-- To create jobs from a remote repository file, add 
-
---- OLD USAGE WITH GRADLE PLUGIN - deprecated ---
-- build and run container:
-```bash
-./gradlew build docker dockerRun
-```
-To stop it use:
-```bash
-./gradlew dockerStop
 ```
 
 ## Create jobs from remote Repos
@@ -77,7 +66,7 @@ IMAGE:
 - user creation (at least one for each: guest / dev / admin) with roles
 - Jenkins master slave setup (one master and create one slave)
   (master - scheduling jobs, communicating and giving instr)
-  (slave - execute ojbs, takes cmds from master)
+  (slave - execute jobs, takes cmds from master)
 - configure global security for agents
 - build pipelines (at least one for each project) -- branch out and create default and your conf
 - schedule some nightly / periodic builds
@@ -98,3 +87,14 @@ the the volume is under /var/lib/docker/volumes/
 - pipelines to build docker image from dockerfile and upload to dockerhub
   (add jenkins user to docker group usermode -a -G docker jenkins)
 - multibranch jobs
+
+
+--- OLD USAGE WITH GRADLE PLUGIN - deprecated ---
+- build and run container:
+```bash
+./gradlew build docker dockerRun
+```
+To stop it use:
+```bash
+./gradlew dockerStop
+```
