@@ -1,10 +1,10 @@
 # preconfigured-jenkins
 
-This repository creates preconfigured Jenkins container to download Your repos and run their Jenkins.file.
-An exemplary instance was deployed here :point_right: [http://207.154.196.96:8080/](http://207.154.196.96:8080/) :feelsgood:
+This Infrastructure as a Code repo builds Docker image and deploys preconfigured Jenkins container to build, test and deploy other projects!
+~~An exemplary instance was deployed here :point_right: [http://207.154.196.96:8080/](http://207.154.196.96:8080/)~~ :feelsgood:
 I use it daily to build and check my own GitHub code.
 
-![Selective Photography Cement by Rodolfo Quiros](./img/pexels-rodolfo-quirós-2219024.jpg)
+![Selective Photography Cement by Rodolfo Quiros](./img/readme-img.jpg)
 
 ## Usage
 
