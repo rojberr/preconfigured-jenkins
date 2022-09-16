@@ -31,7 +31,7 @@ jobs:
         }
       }
   - script: |
-      pipelineJob('certgen') {
+      pipelineJob('certgen_pr_builder') {
         definition {
           cpsScm {
             scm {
@@ -45,6 +45,27 @@ jobs:
             lightweight()
           }
         }
+      }
+  - script: |
+      pipelineJob('certgen_custom_branch_builder') {
+        displayName 'Certgen custom branch build'
+        description '''<dl>Triggered manually!</dl>'''
+        parameters {
+          stringParam 'source', 'master', 'The source branch'
+        }
+        definition {
+          cpsScm {
+            scm {
+              git {
+                remote {
+                  url('https://github.com/rojberr/certgen.git')
+                }
+                branch '${source}'
+              }
+            }
+          }
+        }
+        properties {}
       }
   - script: |
       pipelineJob('mailsender') {
