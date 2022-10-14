@@ -49,9 +49,9 @@ jobs:
   - script: |
       pipelineJob('certgen_custom_branch_builder') {
         displayName 'Certgen custom branch build'
-        description '''<dl>Triggered manually!</dl>'''
+        description ```<dl>Triggered manually!</dl>```
         parameters {
-          stringParam 'source', 'master', 'The source branch'
+          stringParam source, 'master', 'The source branch'
         }
         definition {
           cpsScm {
