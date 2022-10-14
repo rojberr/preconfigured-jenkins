@@ -36,7 +36,7 @@ docker run --rm -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home -v
 - To install Jenkins plugins change the `Dockerfile` plugins section:
 
 ```bash
-vim ./01-build-docker-image/Dockerfile
+vim ./01-build-docker-image/Dockerfile.preconfigured-jenkins
 ```
 
 - To change Jenkins configuration edit Groovy scripts (all scripts will be copied to Docker image and executed on launch) located in:

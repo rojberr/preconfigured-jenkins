@@ -1,0 +1,8 @@
+version: '3.3'
+services:
+
+  preconfigured-jenkins:
+    build:
+      context: .
+      dockerfile: Dockerfile.preconfigured-jenkins
+    container_name: preconfigured-jenkins
