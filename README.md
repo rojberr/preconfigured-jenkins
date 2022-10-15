@@ -74,9 +74,9 @@ Contact me if you want to contribute at rojberr@outlook.com .
 ## Things to automate - quick list:
 
 INFRA:
-
 - setting up the infra / server
 - downloading Jenkins (jar/war) / or container hosted?
+
   IMAGE:
 - installation / first setup ✔️
 - admin password setup ✔️
