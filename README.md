@@ -11,13 +11,11 @@ I use it daily to build and check my own GitHub code.
 To use this CI/CD Infrastructure as Code repo:
 
 - clone it,
-
 ```bash
 git clone git@github.com:rojberr/preconfigured-jenkins.git
 ```
 
 - build the Docker image,
-
 ```bash
 docker build -t preconfigured-jenkins ./01-build-docker-image
 ```
@@ -25,7 +23,9 @@ docker build -t preconfigured-jenkins ./01-build-docker-image
 - now either execute it locally:
 
 ```bash
-docker run --rm -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home -v "/var/run/docker.sock:/var/run/docker.sock" --group-add 0 --name preconfigured-jenkins preconfigured-jenkins
+docker run --rm -p 8080:8080 -p 50000:50000 \
+-v jenkins_home:/var/jenkins_home -v "/var/run/docker.sock:/var/run/docker.sock" \
+--group-add 0 --name preconfigured-jenkins preconfigured-jenkins
 ```
 
 - or push it and deploy it on your server ^^ ...
