@@ -1,0 +1,4 @@
+jobs:
+  - file: "/var/jenkins_home/casc_configs/certgen/folder.groovy"
+  - file: "/var/jenkins_home/casc_configs/certgen/pipeline_certgen_custom_branch_builder.groovy"
+  - file: "/var/jenkins_home/casc_configs/certgen/pipeline_certgen_pr_builder.groovy"

@@ -1,0 +1,4 @@
+jobs:
+  - file: "/var/jenkins_home/casc_configs/my-dev-site/folder.groovy"
+  - file: "/var/jenkins_home/casc_configs/my-dev-site/my_dev_site_2.groovy"
+  - file: "/var/jenkins_home/casc_configs/my-dev-site/my_dev_site_3.groovy"

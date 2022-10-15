@@ -1,0 +1,18 @@
+jobs:
+  - file: "/var/jenkins_home/casc_configs/mailsender/folder.groovy"
+  - script: |
+      pipelineJob('mailsender/mailsender_pr_builder') {
+        definition {
+          cpsScm {
+            scm {
+              git {
+                remote {
+                  url('https://github.com/rojberr/mailsender.git')
+                }
+                branch('*/master')
+              }
+            }
+            lightweight()
+          }
+        }
+      }

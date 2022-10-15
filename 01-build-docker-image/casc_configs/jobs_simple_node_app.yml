@@ -1,0 +1,3 @@
+jobs:
+  - file: "/var/jenkins_home/casc_configs/simple_node_app/folder.groovy"
+  - file: "/var/jenkins_home/casc_configs/simple_node_app/simple_node_app_pr_builder.groovy"

@@ -1,0 +1,3 @@
+jobs:
+  - file: "/var/jenkins_home/casc_configs/smartaviator/folder.groovy"
+  - file: "/var/jenkins_home/casc_configs/smartaviator/smartaviator_pr_builder.groovy"

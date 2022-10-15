@@ -1,0 +1,18 @@
+jenkins:
+  systemMessage: "Welcome to preconfigured Jenkins 👷"
+
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: ${JENKINS_ADMIN_ID}
+          password: ${JENKINS_ADMIN_PASSWORD}
+
+  authorizationStrategy:
+    globalMatrix:
+      permissions:
+        - "Overall/Administer:admin"
+        - "Overall/Read:anonymous"
+
+  remotingSecurity:
+    enabled: true
