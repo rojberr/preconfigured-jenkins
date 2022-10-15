@@ -1,12 +1,11 @@
 FROM jenkins/jenkins:2.368-jdk17 AS preconfigured-jenkins
 
 LABEL maintainer="rojberr"
-LABEL build_date="2022-09-14"
+LABEL build_date="2022-10-14"
 
-# Set CASC_JENKINS_CONFIG env to point to config folder ###
-ENV CASC_JENKINS_CONFIG /var/jenkins_home/custom-jenkins-config.yml
-# Skip setup wizard
-ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
+# Expose ports
+EXPOSE 8080
+EXPOSE 50000
 
 # Install Docker
 USER root
@@ -29,9 +28,14 @@ RUN jenkins-plugin-cli --plugins \
     configuration-as-code:1512.vb_79d418d5fc8 \
     workflow-aggregator:590.v6a_d052e5a_a_b_5
 
-# Copy config files
+### Set CASC_JENKINS_CONFIG env to point to config folder
+ENV CASC_JENKINS_CONFIG /var/jenkins_home/casc_configs
+### Skip setup wizard
+ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
+
+# Copy config files fod DSL and CasC
 COPY /remote-jobs/seedJob.xml /usr/share/jenkins/ref/jobs/seed-job/config.xml
-COPY custom-jenkins-config.yml /var/jenkins_home/custom-jenkins-config.yml
+COPY casc_configs /var/jenkins_home/casc_configs/
 
 # Groovy scripts executed during startup
 COPY --chown=jenkins:jenkins init.groovy.d/ var/jenkins_home/init.groovy.d/
